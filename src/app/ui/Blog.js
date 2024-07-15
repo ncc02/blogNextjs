@@ -10,28 +10,23 @@ import {CurrentUserContext} from '@/app/blogs/layout'
 
 const Blog = ({image, title, id, content, createAt, myblog}) => {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
-  const handleDel = () => {
-   
-      
-        try {
-          const token = localStorage.getItem("token"); // Lấy token từ localStorage
-  
-          fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs/${id}/`, {
-            method: 'DELETE',
-            headers: {
-              "Authorization": `Token ${token}`, // Thêm token vào header
-            },
-          });
-  
+const handleDel = async () => { // Đánh dấu hàm là async
+  try {
+    const token = localStorage.getItem("token");
 
-          setCurrentUser(!currentUser);
-        } catch (error) {
-          console.error("Error fetching data:", error);
-        }
-     
-   
-  };
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs/${id}/`, { // Đợi fetch hoàn thành
+      method: 'DELETE',
+      headers: {
+        "Authorization": `Token ${token}`,
+      },
+    });
 
+    // Sau khi fetch thành công, cập nhật giao diện:
+    setCurrentUser(!currentUser); 
+  } catch (error) {
+    console.error("Lỗi khi xóa dữ liệu:", error);
+  }
+};
 
   return (
     <div className="card" style={{ width: '40rem', height:'15rem' }}>
