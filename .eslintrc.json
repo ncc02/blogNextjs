@@ -1,0 +1,11 @@
+{
+  "extends": ["next/babel", "next/core-web-vitals"],
+  "rules": {
+    // ... your existing rules
+  },
+  "parserOptions": {
+    "babelOptions": {
+      "presets": ["next/babel"] 
+    }
+  }
+}

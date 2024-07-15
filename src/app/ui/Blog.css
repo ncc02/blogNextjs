@@ -1,0 +1,17 @@
+.card-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* Số dòng tối đa */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card-title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* Số dòng tối đa */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  

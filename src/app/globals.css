@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+textarea {
+    white-space: pre-wrap; /* Giữ nguyên khoảng trắng và xuống dòng */
+  }
+  /* Trong file CSS của bạn */
+.blog-content {
+    white-space: pre-line; /* Hoặc pre-wrap */
+  }
